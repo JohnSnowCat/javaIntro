@@ -54,8 +54,9 @@ public class Ex01 {
         //Option 6
         LinkedList<Integer> resList5 = new LinkedList<>();
         for (int i = list.size(); i > 0; i--) {
-            resList5.addFirst(list.pollLast());
+            resList5.addLast(list.pollLast());
         }
         System.out.println("Modified list is: " + resList5);
+
     }
 }
