@@ -21,7 +21,8 @@ public class ListWorkersMaker {
         while (num > 0) {
             boolean flag = true;
             while (flag) {
-                InputString inputString = new InputString("Введите данные через пробел: ФИО, Дата рождения, номер телефона, пол.\n" +
+                InputString inputString = new InputString("Введите данные через пробел:" +
+                        " ФИО, Дата рождения, номер телефона, пол.\n" +
                         "Форматы данных:\n" + "фамилия, имя, отчество - строки\n" +
                         "дата рождения - строка формата dd.mm.yyyy\n" +
                         "номер телефона - целое беззнаковое число без форматирования" +

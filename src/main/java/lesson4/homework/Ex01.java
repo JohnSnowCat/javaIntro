@@ -57,6 +57,5 @@ public class Ex01 {
             resList5.addLast(list.pollLast());
         }
         System.out.println("Modified list is: " + resList5);
-
     }
 }

@@ -8,11 +8,15 @@ public class InputString {
     public String inputStringData;
     List<String> inputStringAsList;
     public String fullName;
-    public String[] fullNameArray;
     String dateOfBirth;
     String phoneNumber;
     String sex;
 
+    /**
+     * Конструктор InputString
+     * @param info Инфо строка с форматом вводимых данных
+     * @param sc Scanner
+     */
     public InputString(String info, Scanner sc) {
         System.out.println(info);
         this.inputStringData = sc.nextLine();
@@ -21,8 +25,8 @@ public class InputString {
     }
 
     /**
-     * @return 0 если верно или отрицательное число (код ошибки), если данные введены некорректно
      * @api Проверка введенной строки на корректность данных по количеству.
+     * @return 0 если верно или отрицательное число (код ошибки), если данные введены некорректно
      */
     public int checkInput() {
         if (inputStringAsList == null)
@@ -34,6 +38,11 @@ public class InputString {
         return 0;
     }
 
+    /**
+     * Проверка строки на корректное содержание данных в ней для дальнейшего добавления в listInputStrings (36 строка)
+     * класса ListWorkersMaker (20 строка)
+     * @return True в случае корректности ввода всех 6 параметров (Фамилия+Имя+Отчество+Дата рождения+тел+пол)
+     */
     public boolean checkInputString() {
         int count = 0;
         for (String s : inputStringAsList) {
@@ -92,7 +101,6 @@ public class InputString {
                 throw new SexException("Данные пола введены некорректно!" +
                         "Требуется строка с одним значением (f или m");
             } else {
-//                fullNameArray = fullName.split(" "); // делатель ФИО эррэй
                 return !true;
             }
         } else if (checkInput() == -1) {
