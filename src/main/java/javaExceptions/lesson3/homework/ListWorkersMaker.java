@@ -6,20 +6,18 @@ import java.util.Scanner;
 
 public class ListWorkersMaker {
     List<InputString> listOfWorkers;
-//    List<String[]> fullNameList;
 
-    public ListWorkersMaker(int number, Scanner sc) {
+    ListWorkersMaker(int number, Scanner sc) {
         this.listOfWorkers = workersMaker(number, sc);
     }
-
     /**
-     * @apiNote
-     * @param num
-     * @param sc
-     * @return
+     * @param num Количество создаваемых работников
+     * @param sc  Scanner для ввода данных
+     * @return Список работников (List<InputString>)
+     * @apiNote Создает список(List) работников типа <InputString> (ФИО, День рождение, телефон, пол)
      */
     public List<InputString> workersMaker(int num, Scanner sc) {
-        List<InputString> arrayInputStrings1 = new LinkedList<>();
+        List<InputString> listInputStrings = new LinkedList<>();
         while (num > 0) {
             boolean flag = true;
             while (flag) {
@@ -32,16 +30,14 @@ public class ListWorkersMaker {
                     flag = inputString.parseInputString();
                 } catch (FioException | PhoneException | DateBirthException | SexException e) {
                     e.printStackTrace();
-//                    System.out.println("Повторите ввод данных!");
                 }
-                if (inputString.inputStringAsList.size() == 6)
-                arrayInputStrings1.add(inputString);
+                if (inputString.inputStringAsList.size() == 6 && inputString.checkInputString()) //ToDo нужна проверка на отсутствие исключений
+                    listInputStrings.add(inputString);
             }
             num--;
         }
-        return arrayInputStrings1;
+        return listInputStrings;
     }
-
 
     @Override
     public String toString() {

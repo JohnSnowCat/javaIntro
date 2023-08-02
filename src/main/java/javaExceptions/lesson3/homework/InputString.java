@@ -21,10 +21,10 @@ public class InputString {
     }
 
     /**
-     * @api Проверка введенной строки на корректность данных по количеству.
      * @return 0 если верно или отрицательное число (код ошибки), если данные введены некорректно
+     * @api Проверка введенной строки на корректность данных по количеству.
      */
-    public int checkInput(){
+    public int checkInput() {
         if (inputStringAsList == null)
             return -1;
         if (inputStringAsList.size() < 6)
@@ -32,6 +32,26 @@ public class InputString {
         if (inputStringAsList.size() > 6)
             return -3;
         return 0;
+    }
+
+    public boolean checkInputString() {
+        int count = 0;
+        for (String s : inputStringAsList) {
+            if ((s.length() == 1) && s.equals("m") || s.equals("f")) {
+                this.sex = s;
+                count++;
+            } else if (s.matches("\\d{2}.\\d{2}.\\d{4}")) {
+                this.dateOfBirth = s;
+                count++;
+            } else if (s.matches("[0-9]+")) {
+                this.phoneNumber = s;
+                count++;
+            } else if (s.toLowerCase().matches("[а-яa-z]+")) {
+                fullName += fullName;
+                count++;
+            }
+        }
+        return (count == 6) ? true : false;
     }
 
     /**
@@ -43,56 +63,45 @@ public class InputString {
         for (String s : inputStringAsList) {
             if ((s.length() == 1) && s.equals("m") || s.equals("f")) {
                 this.sex = s;
-                countParam ++;
-            }
-            else if (s.matches("\\d{2}.\\d{2}.\\d{4}")) {
+                countParam++;
+            } else if (s.matches("\\d{2}.\\d{2}.\\d{4}")) {
                 this.dateOfBirth = s;
-                countParam ++;
-            }
-            else if (s.matches("[0-9]+")) {
+                countParam++;
+            } else if (s.matches("[0-9]+")) {
                 this.phoneNumber = s;
-                countParam ++;
-            }
-            else if (s.toLowerCase().matches("[а-яa-z]+")) {
+                countParam++;
+            } else if (s.toLowerCase().matches("[а-яa-z]+")) {
                 fullName += fullName;
                 countParam++;
-            }
-            else {
-                System.out.println(s + " -введены неверные данные, повторите ввод"); //erorString + " - введены неверные данные, повторите ввод");
+            } else {
+                System.out.println(s + " -введены неверные данные, повторите ввод");
                 countParam++;
             }
         }
-        if (countParam == 6 && checkInput() == 0)
-        {
+        if (countParam == 6 && checkInput() == 0) {
             if (fullName == null) {
                 throw new FioException("Данные Фамилии имя и отчества введены некорректно!" +
                         "Требуется 3 параметра, введено: " + Arrays.asList(fullName.split(" ")).size());
-            }
-            else if (dateOfBirth == null) {
+            } else if (dateOfBirth == null) {
                 throw new DateBirthException(("Данные дня рождения введены некорректно!" +
                         "Требуются данные формата dd.mm.yyyy"));
-            }
-            else if (phoneNumber == null) {
+            } else if (phoneNumber == null) {
                 throw new PhoneException("Данные телефонного номера введены некорректно!" +
                         "Требуется строка с целыми беззнаковыми числами");
-            }
-            else if (sex == null) {
+            } else if (sex == null) {
                 throw new SexException("Данные пола введены некорректно!" +
                         "Требуется строка с одним значением (f или m");
-            }
-            else {
+            } else {
 //                fullNameArray = fullName.split(" "); // делатель ФИО эррэй
                 return !true;
             }
-        }
-        else if (checkInput() == -1) {
+        } else if (checkInput() == -1) {
             System.out.println("Данные не введены! Повторите ввод.");
             return !false;
-        }else if (checkInput() == -2) {
+        } else if (checkInput() == -2) {
             System.out.println("Введены неполные данные. Требуется 6, введено " + countParam);
             return !false;
-        }
-        else if (checkInput() == -3) {
+        } else if (checkInput() == -3) {
             System.out.println("Введены избыточные данные. Требуется 6, введено " + countParam);
             return !false;
         }
