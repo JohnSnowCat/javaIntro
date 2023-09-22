@@ -2,7 +2,7 @@ package javaOOP.lesson5.homeWork.MVCStudentApp.Controller.Interfaces;
 
 import java.util.List;
 
-import Model.Core.Student;
+import javaOOP.lesson5.homeWork.MVCStudentApp.Model.Core.Student;
 
 public interface iGetModel {
     public List<Student> getStudents();

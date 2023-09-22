@@ -1,4 +1,4 @@
-package javaOOP.lesson5.homeWork.MVCStudentApp.Controller.Interfaces;
+package javaOOP.lesson5.homeWork.MVCStudentApp.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +7,7 @@ import java.util.Scanner;
 import javaOOP.lesson5.homeWork.MVCStudentApp.Controller.Interfaces.iGetModel;
 import javaOOP.lesson5.homeWork.MVCStudentApp.Controller.Interfaces.iGetView;
 import javaOOP.lesson5.homeWork.MVCStudentApp.Model.Core.Student;
+import javaOOP.lesson5.workShop08.MVCSTUDENTAPP.Controller.Command;
 
 /**
  * Класс контроллер. Принимает экземпляры интерфейсов iGetModel и iGetView

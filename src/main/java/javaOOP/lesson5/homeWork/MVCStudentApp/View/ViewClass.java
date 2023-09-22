@@ -1,8 +1,8 @@
 package javaOOP.lesson5.homeWork.MVCStudentApp.View;
 
-import javaOOP.lesson5.homeWork.MVCStudentApp.java.util.HashMap;
-import javaOOP.lesson5.homeWork.MVCStudentApp.java.util.List;
-import javaOOP.lesson5.homeWork.MVCStudentApp.java.util.Scanner;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
 
 import javaOOP.lesson5.homeWork.MVCStudentApp.Controller.Interfaces.iGetView;
 import javaOOP.lesson5.homeWork.MVCStudentApp.Model.Core.Student;

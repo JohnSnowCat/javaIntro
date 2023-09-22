@@ -7,8 +7,8 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import Controller.Interfaces.iGetModel;
-import Model.Core.Student;
+import javaOOP.lesson5.homeWork.MVCStudentApp.Controller.Interfaces.iGetModel;
+import javaOOP.lesson5.homeWork.MVCStudentApp.Model.Core.Student;
 
 public class ModelClassFile implements iGetModel {
     private String fileName;
